@@ -41,7 +41,7 @@ async def run_poll_cycle() -> None:
         if not monitors:
             return
 
-        async with httpx.AsyncClient(follow_redirects=False) as client:
+        async with httpx.AsyncClient(follow_redirects=True) as client:
             checks = await asyncio.gather(
                 *(_check_monitor(client, monitor) for monitor in monitors)
             )
