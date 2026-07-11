@@ -6,7 +6,11 @@ Built as a take-home for Epifi. See `AI_LOG.md` for the full AI collaboration lo
 
 ## Setup
 
+Clone the repo, then from the project root:
+
 ```
+git clone https://github.com/hasanansari/epifi-techscreen.git
+cd epifi-techscreen
 docker compose up
 ```
 
