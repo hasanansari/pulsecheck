@@ -47,3 +47,162 @@ a {
     color-scheme: dark;
   }
 }
+
+.page {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.add-form input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.add-form button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.add-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #c0392b;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.status-message {
+  color: #666;
+  margin-top: 1rem;
+}
+
+.banner {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.banner-error {
+  background: #fdecea;
+  color: #c0392b;
+  border: 1px solid #e6a19b;
+}
+
+.banner-warning {
+  background: #fff8e1;
+  color: #8a6d00;
+  border: 1px solid #e6cf7a;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-up {
+  background: #e3f7e8;
+  color: #1e7a34;
+}
+
+.badge-down {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.badge-pending {
+  background: #eee;
+  color: #666;
+}
+
+.delete-button {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #c0392b;
+  border-radius: 4px;
+  background: transparent;
+  color: #c0392b;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  .badge-up {
+    background: #143a1f;
+    color: #6fd88a;
+  }
+
+  .badge-down {
+    background: #3a1616;
+    color: #f28b82;
+  }
+
+  .badge-pending {
+    background: #333;
+    color: #ccc;
+  }
+
+  .banner-error {
+    background: #3a1616;
+    color: #f28b82;
+    border-color: #6b2b2b;
+  }
+
+  .banner-warning {
+    background: #3a2f0a;
+    color: #f0d876;
+    border-color: #6b5a1f;
+  }
+
+  th,
+  td {
+    border-bottom-color: #444;
+  }
+
+  .add-form input,
+  .add-form button {
+    border-color: #555;
+  }
+}
