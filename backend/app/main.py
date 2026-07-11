@@ -1,4 +1,5 @@
-from contextlib import asynccontextmanager
+import asyncio
+from contextlib import asynccontextmanager, suppress
 
 from fastapi import Depends, FastAPI, HTTPException, status
 from sqlalchemy import select
@@ -7,13 +8,20 @@ from sqlalchemy.orm import aliased
 
 from app.database import create_tables, get_db
 from app.models import Check, Monitor
+from app.poller import poll_forever
 from app.schemas import CheckOut, MonitorCreate, MonitorOut
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await create_tables()
-    yield
+    poll_task = asyncio.create_task(poll_forever())
+    try:
+        yield
+    finally:
+        poll_task.cancel()
+        with suppress(asyncio.CancelledError):
+            await poll_task
 
 
 app = FastAPI(lifespan=lifespan)
