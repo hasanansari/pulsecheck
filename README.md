@@ -1,16 +1,16 @@
-# Uptime Monitor
+# Pulsecheck
 
 A small, single-purpose uptime monitor. Register a URL, and a background poller checks it every ~60 seconds, recording whether it's up, its response time, and the HTTP status code. A dashboard shows the current state of everything you're watching, updating on its own.
 
-Built as a take-home for Epifi. See `AI_LOG.md` for the full AI collaboration log, prompts, and decisions made along the way.
+Built as a weekend project to poke at FastAPI, async SQLAlchemy, and Next.js together. See `AI_LOG.md` for the full AI collaboration log, prompts, and decisions made along the way.
 
 ## Setup
 
 Clone the repo, then from the project root:
 
 ```
-git clone https://github.com/hasanansari/epifi-techscreen.git
-cd epifi-techscreen
+git clone https://github.com/hasanansari/pulsecheck.git
+cd pulsecheck
 docker compose up
 ```
 
@@ -41,7 +41,7 @@ docker compose down -v
 
 ## Testing the up/down detection
 
-This is the part the assignment specifically asks to be reproducible, so here's the exact sequence.
+This is the part worth being able to reproduce reliably, so here's the exact sequence.
 
 1. Bring the stack up with `docker compose up`.
 2. Open http://localhost:3000.
@@ -116,6 +116,6 @@ The poller itself would keep running the same way it does locally, as a backgrou
 
 This is an MVP, and a few things are left out on purpose rather than by oversight:
 
-- No auth. Anyone who can reach the API can register or delete monitors. Fine for a local take-home, not fine for anything real.
+- No auth. Anyone who can reach the API can register or delete monitors. Fine for a local side project, not fine for anything real.
 - No schema migrations. Tables are created with `create_all` on startup, which handles a fresh database but won't alter an existing table if the schema changes later. A real project would use Alembic or similar.
 - No historical charting or uptime percentage over time. The data model supports it (every check is stored, not just the latest), but building that view wasn't part of what was asked.
